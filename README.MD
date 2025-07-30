@@ -37,8 +37,8 @@ src/
 - [Node.js](https://nodejs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Express.js](https://expressjs.com/)
-- [Nodemon](https://nodemon.io/) (dev)
-- [Joi](https://joi.dev/) (validation)
+- [Nodemon](https://nodemon.io/)
+- [Zod](https://zod.dev/) (validation)
 - [dotenv](https://github.com/motdotla/dotenv) (env config)
 - ...và các thư viện hữu ích khác
 
