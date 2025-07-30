@@ -100,7 +100,7 @@ npm run migrate
 
 ## 🤝 Đóng góp
 
-Mọi đóng góp, issue hoặc pull request đều rất được chào đón!"
+### Mọi đóng góp, issue hoặc pull request đều rất được chào đón!
 
 1. Fork repository
 2. Tạo branch mới (`git checkout -b feature/ten-tinh-nang`)
