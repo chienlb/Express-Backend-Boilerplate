@@ -13,7 +13,7 @@ export const validate = (schema: ZodObject) => {
       next();
     } catch (error: any) {
       if (error instanceof ZodError) {
-        next(new ApiError(400, "Validation Error", error.issues as any));
+        next(new ApiError(400, error.issues[0].message, false));
       } else {
         next(error);
       }

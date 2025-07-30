@@ -7,7 +7,7 @@
     "start": "node dist/server.js",
     "dev": "nodemon"
   },
-  "author": "",
+  "author": "Bao Chien",
   "license": "ISC",
   "dependencies": {
     "@types/bcrypt": "^6.0.0",
@@ -30,5 +30,13 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0"
   },
-  "description": ""
+  "description": "Dự án sử dụng kiến trúc **MVCS**:",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chien2602/Express-Backend-Boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Chien2602/Express-Backend-Boilerplate/issues"
+  },
+  "homepage": "https://github.com/Chien2602/Express-Backend-Boilerplate#readme"
 }
