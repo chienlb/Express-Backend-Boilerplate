@@ -1,8 +1,8 @@
 # 🚀 Template NodeJS - MVCS Architecture
 
-![Node.js](https://img.shields.io/badge/Node.js-18.x-green?logo=node.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-4.x-blue?logo=typescript)
-![Express](https://img.shields.io/badge/Express.js-4.x-lightgrey?logo=express)
+![Node.js](https://img.shields.io/badge/Node.js-22.14.0-green?logo=node.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue?logo=typescript)
+![Express](https://img.shields.io/badge/Express.js-5.1.0-lightgrey?logo=express)
 
 ---
 
@@ -100,7 +100,7 @@ npm run migrate
 
 ## 🤝 Đóng góp
 
-Mọi đóng góp, issue hoặc pull request đều được hoan nghênh!
+Mọi đóng góp, issue hoặc pull request đều rất được chào đón!"
 
 1. Fork repository
 2. Tạo branch mới (`git checkout -b feature/ten-tinh-nang`)

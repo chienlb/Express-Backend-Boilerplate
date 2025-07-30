@@ -16,10 +16,7 @@ export class UserService {
       });
       return newUser;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error creating user");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -28,10 +25,7 @@ export class UserService {
       const user = await UserModel.findOne({ email });
       return user;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error finding user by email");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -40,10 +34,7 @@ export class UserService {
       const user = await UserModel.findById(id);
       return user;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error finding user by id");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -52,10 +43,7 @@ export class UserService {
       const users = await UserModel.find();
       return users;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error finding all users");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -69,10 +57,7 @@ export class UserService {
       });
       return updatedUser;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error updating user");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -85,10 +70,7 @@ export class UserService {
       );
       return deletedUser;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error soft deleting user");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -97,10 +79,7 @@ export class UserService {
       const deletedUser = await UserModel.findByIdAndDelete(id);
       return deletedUser;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error hard deleting user");
+      throw new ApiError(400, error as string);
     }
   }
 }

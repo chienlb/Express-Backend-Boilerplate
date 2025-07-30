@@ -1,72 +1,50 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import { RoleService } from "@/services/role.service";
+import { asyncHandler } from "@/utils/asyncHandler.utils";
+import { ApiResponse } from "@/utils/apiResponse.utils";
 
 export class RoleController {
-  static async findAll(_req: Request, res: Response, next: NextFunction) {
-    try {
-      const roles = await RoleService.findAll();
-      res.status(200).json(roles);
-    } catch (error) {
-      next(error);
-    }
-  }
+  static findAll = asyncHandler(async (_req: Request, res: Response) => {
+    const roles = await RoleService.findAll();
+    res.json(new ApiResponse(200, "Get all roles successfully", { roles }));
+  });
 
-  static async findRoleById(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { id } = req.params;
-      const role = await RoleService.findRoleById(id);
-      res.status(200).json(role);
-    } catch (error) {
-      next(error);
-    }
-  }
+  static findRoleById = asyncHandler(async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const role = await RoleService.findRoleById(id);
+    res.json(new ApiResponse(200, "Get role by id successfully", { role }));
+  });
 
-  static async createRole(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { name, description, permissions } = req.body;
-      const role = await RoleService.createRole({
-        name,
-        description,
-        permissions,
-      });
-      res.status(201).json(role);
-    } catch (error) {
-      next(error);
-    }
-  }
+  static createRole = asyncHandler(async (req: Request, res: Response) => {
+    const { name, description, permissions } = req.body;
+    const role = await RoleService.createRole({
+      name,
+      description,
+      permissions,
+    });
+    res.json(new ApiResponse(201, "Create role successfully", { role }));
+  });
 
-  static async updateRole(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { id } = req.params;
-      const { name, description, permissions } = req.body;
-      const role = await RoleService.updateRole(id, {
-        name,
-        description,
-        permissions,
-      });
-      res.status(200).json(role);
-    } catch (error) {
-      next(error);
-    }
-  }
+  static updateRole = asyncHandler(async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { name, description, permissions } = req.body;
+    const role = await RoleService.updateRole(id, {
+      name,
+      description,
+      permissions,
+    });
+    res.json(new ApiResponse(200, "Update role successfully", { role }));
+  });
 
-  static async softDeleteRole(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { id } = req.params;
-      const role = await RoleService.softDeleteRole(id);
-      res.status(200).json(role);
-    } catch (error) {
-      next(error);
-    }
-  }
+  static softDeleteRole = asyncHandler(async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const role = await RoleService.softDeleteRole(id);
+    res.json(new ApiResponse(200, "Soft delete role successfully", { role }));
+  });
 
-  static async hardDeleteRole(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { id } = req.params;
-      const role = await RoleService.hardDeleteRole(id);
-      res.status(200).json(role);
-    } catch (error) {
-      next(error);
-    }
-  }
+  static hardDeleteRole = asyncHandler(async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const role = await RoleService.hardDeleteRole(id);
+    res.json(new ApiResponse(200, "Hard delete role successfully", { role }));
+  });
 }

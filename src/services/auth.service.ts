@@ -42,10 +42,7 @@ export class AuthService {
       await sendEmail(mailOptions);
       return user;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new Error("Error registering user");
+      throw new ApiError(500, error as string);
     }
   }
 
@@ -74,10 +71,7 @@ export class AuthService {
         refreshToken,
       };
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new Error("Error logging in");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -99,10 +93,7 @@ export class AuthService {
         timeSendCode: new Date(),
       });
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new Error("Error verifying email");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -125,10 +116,7 @@ export class AuthService {
       });
       await sendEmail(mailOptions);
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new Error("Error sending code verify");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -155,10 +143,7 @@ export class AuthService {
         timeSendCode: new Date(),
       });
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new Error("Error resetting password");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -181,10 +166,7 @@ export class AuthService {
         password: hashedPassword,
       });
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new Error("Error changing password");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -196,10 +178,7 @@ export class AuthService {
       const accessToken = reCreateAccessToken(refreshToken, payload);
       return accessToken;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new Error("Error refreshing token");
+      throw new ApiError(400, error as string);
     }
   }
 }

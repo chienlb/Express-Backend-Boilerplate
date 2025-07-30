@@ -10,10 +10,7 @@ export class RoleService {
       }
       return roles;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error finding all roles");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -25,10 +22,7 @@ export class RoleService {
       }
       return role;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error finding role by id");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -37,10 +31,7 @@ export class RoleService {
       const role = await RoleModel.create(data);
       return role;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error creating role");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -52,10 +43,7 @@ export class RoleService {
       }
       return role;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error updating role");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -71,10 +59,7 @@ export class RoleService {
       }
       return role;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error soft deleting role");
+      throw new ApiError(400, error as string);
     }
   }
 
@@ -86,10 +71,7 @@ export class RoleService {
       }
       return role;
     } catch (error) {
-      if (error instanceof ApiError) {
-        throw error;
-      }
-      throw new ApiError(400, "Error hard deleting role");
+      throw new ApiError(400, error as string);
     }
   }
 }
